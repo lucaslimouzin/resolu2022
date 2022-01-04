@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import PwaInstallPopupIOS from 'react-pwa-install-ios';
 
 const url = "https://api.unsplash.com/photos/random/?client_id=PNSdPNlri3siqZYnSDRjfdwtBX9f7a6aAYO_EubAxeQ"
 export default class TestApi extends  React.Component {
@@ -42,12 +43,34 @@ export default class TestApi extends  React.Component {
         this.fetchResolution();
     }
 
+    
     render() {
 
         const imgData = this.state.regular;
         const resoData = this.state.resolutions;
         const userLinksData = this.state.html;
         const userData = this.state.first_name;
+
+        const MyComponent = () => {
+            return (
+                <PwaInstallPopupIOS>
+                <div 
+                  delay={0}
+                  style={{
+                    padding: '15px 30px',
+                    backgroundColor: 'blue',
+                    color: 'white',
+                    textAlign: 'center',
+                  }}
+                > 
+                  Hey ! I am the PwaInstallPopupIOS component.
+                  without the 'force=true' props, I will display only on iOS device,
+                  not in standalone mode.
+                </div>
+              </PwaInstallPopupIOS>
+            );
+          };
+
         return (
             
             <div className="flex justify-start items-center flex-col h-screen bg-black">
