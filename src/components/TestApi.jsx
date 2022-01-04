@@ -30,7 +30,7 @@ export default class TestApi extends  React.Component {
         this.setState({ regular });
         const { first_name } = response.data.user;
         this.setState({ first_name });
-        const { html } = response.data.user.links.html;
+        const { html } = response.data.user.links;
         this.setState({ html });
       })
       .catch((error) => {
@@ -52,7 +52,7 @@ export default class TestApi extends  React.Component {
             
             <div className="flex justify-start items-center flex-col h-screen bg-black">
                 <div className ="relative w-full h-full">
-                    <img src={imgData} alt="" className="w-full h-full object-cover" onerror="this.style.display='none'"
+                    <img src={imgData} alt="" className="w-full h-full object-cover"
                     />
                    
                 </div> 
