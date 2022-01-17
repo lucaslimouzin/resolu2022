@@ -14,10 +14,12 @@ export default class TestApi extends  React.Component {
         }
 
     fetchResolution= () => {
-        axios.get('https://retoolapi.dev/jlXeoU/data')
+        axios.get('resolution.json')
       .then((response) => {
-        const int = Math.floor(Math.random() * 150);
-        this.setState({ resolutions: response.data[int].resolutions });
+        const int = Math.floor(Math.random() * 50);
+        const { resolutions } = response.data[int];
+        this.setState({resolutions});
+        
       })
       .catch((error) => {
         console.log(error);
@@ -50,26 +52,6 @@ export default class TestApi extends  React.Component {
         const resoData = this.state.resolutions;
         const userLinksData = this.state.html;
         const userData = this.state.first_name;
-
-        const MyComponent = () => {
-            return (
-                <PwaInstallPopupIOS>
-                <div 
-                  delay={0}
-                  style={{
-                    padding: '15px 30px',
-                    backgroundColor: 'blue',
-                    color: 'white',
-                    textAlign: 'center',
-                  }}
-                > 
-                  Hey ! I am the PwaInstallPopupIOS component.
-                  without the 'force=true' props, I will display only on iOS device,
-                  not in standalone mode.
-                </div>
-              </PwaInstallPopupIOS>
-            );
-          };
 
         return (
             
